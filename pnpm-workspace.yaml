@@ -1,0 +1,4 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "!**/test" # Exclude test folders from being treated as workspaces
