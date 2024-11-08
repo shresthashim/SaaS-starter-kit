@@ -70,72 +70,95 @@ const SignUpPage = () => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
-      <Card className="w-full max-w-md">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <Card className="w-full max-w-md p-6 shadow-lg rounded-lg bg-white">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">
-            Sign Up for Todo Master
+          <CardTitle className="text-3xl font-semibold text-center text-gray-800">
+            Sign Up for Task Mate
           </CardTitle>
         </CardHeader>
         <CardContent>
           {!pendingVerification ? (
-            <form onSubmit={handleSignUp} className="space-y-4">
+            <form onSubmit={handleSignUp} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-gray-700">
+                  Email
+                </Label>
                 <Input
                   type="email"
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:border-primary focus:ring-primary"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <div className="relative">
-                  <Input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </div>
+                <Label htmlFor="password" className="text-gray-700">
+                  Password
+                </Label>
+                <Input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:border-primary focus:ring-primary"
+                />
               </div>
               {error && (
-                <Alert variant="destructive">
-                  <AlertDescription>{error}</AlertDescription>
+                <Alert
+                  variant="destructive"
+                  className="mt-4 border border-red-500 bg-red-50"
+                >
+                  <AlertDescription className="text-red-600">
+                    {error}
+                  </AlertDescription>
                 </Alert>
               )}
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className="w-full py-3 mt-4 font-semibold text-black bg-primary hover:bg-primary-dark rounded-lg"
+              >
                 Sign Up
               </Button>
             </form>
           ) : (
-            <form onSubmit={handleVerify} className="space-y-4">
+            <form onSubmit={handleVerify} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="code">Verification Code</Label>
+                <Label htmlFor="code" className="text-gray-700">
+                  Verification Code
+                </Label>
                 <Input
                   id="code"
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
                   placeholder="Enter verification code"
                   required
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:border-primary focus:ring-primary"
                 />
               </div>
               {error && (
-                <Alert variant="destructive">
-                  <AlertDescription>{error}</AlertDescription>
+                <Alert
+                  variant="destructive"
+                  className="mt-4 border border-red-500 bg-red-50"
+                >
+                  <AlertDescription className="text-red-600">
+                    {error}
+                  </AlertDescription>
                 </Alert>
               )}
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className="w-full py-3 mt-4 font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg"
+              >
                 Verify Email
               </Button>
             </form>
           )}
         </CardContent>
-        <CardFooter className="justify-center">
-          <p className="text-sm text-muted-foreground">
+        <CardFooter className="flex justify-center mt-4">
+          <p className="text-sm text-gray-600">
             Already have an account?{" "}
             <Link
               href="/sign-in"
@@ -149,4 +172,5 @@ const SignUpPage = () => {
     </div>
   );
 };
+
 export default SignUpPage;
