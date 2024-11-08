@@ -3,7 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Todo Master",
+  title: "Task Mate",
   description: "A SaaS todo list application",
 };
 
